@@ -1,6 +1,6 @@
 # WeatherApp A Vue.js project
 
-<img src='./src/static/images/Screenshot.png><a href="https://khalidh82.github.io/WeatherApp/">
+<img src='./src/static/images/Screenshot.png><a href="https://khalidh82.github.io/WeatherApp/"></img>
 
 
 
