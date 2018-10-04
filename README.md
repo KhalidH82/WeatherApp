@@ -1,15 +1,16 @@
-# WeatherApp
+# WeatherApp A Vue.js project
+
 <a href="https://khalidh82.github.io/WeatherApp/">
 
-> A Vue.js project
+
 
 <h3>## Build Setup</h3>
-*Make sure to have Vue cli installed globally npm install -g vue-cli
-1. Clone or download to local machine
-2. CD into directory
+*Make sure to have Vue cli installed globally npm install -g vue-cli<br>
+1. Clone or download to local machine<br>
+2. CD into directory<br>
 <h3># install dependencies</h3>
-3. Run npm install in terminal projects root directory
-<h3># serve with hot reload at localhost:8080</h3>
+3. Run npm install in terminal projects root directory<br>
+<h3># serve with hot reload at localhost:8080</h3><br>
 4. Run npm run dev
 
 <h4>Description</h4>
