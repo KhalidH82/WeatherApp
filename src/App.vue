@@ -94,6 +94,7 @@
 </template>
 
 <script>
+// Npm page that formats dates and times
 import moment from 'moment';
 
 export default {
@@ -116,24 +117,27 @@ export default {
   },
 
    methods: {
-
+     // Formats dates
     formatDate(date) {
       return moment(date).format(`dddd MMMM D, gggg`)
 
     },
+    // Formats times
     formatTime(time) {
       return moment(time).format(`hh:mm A`)
 
     },
+    // Converts to Fahrenheit
     tempConversionF(temp) {
       return Math.round((temp * 9/5) - 459.67) + ' F'
 
     },
+    // Converts to Celcius
     tempConversionC(temp) {
       return Math.round(temp - 273.15) + ' C'
 
     },
-    
+    // Checks if data is from uniquedate 
     dateMatches: function(data, checkDate) {
      return data.filter(function(date) {
        let split = date.dt_txt.split(" ")
@@ -141,9 +145,11 @@ export default {
      })
    },
 
+  // Gets current weather based on city name
    getWeather() {
        let city = document.getElementById('city').value
        let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&?units=Fahrenheit&APPID=09e5878249822dd2c44cdf6cc6e3fa7b`;
+       // axios call to OpenWeatherApp API to retrieve current forecast by city name
        axios
          .get(url)
          .then(response => {
@@ -158,6 +164,8 @@ export default {
          console.log(error);
        });
      },
+
+     // Gets current weather based on zip code
      getWeather2() {
        let zip = document.getElementById('zip').value
        let url = `https://api.openweathermap.org/data/2.5/forecast?zip=${zip}&APPID=09e5878249822dd2c44cdf6cc6e3fa7b`;
@@ -190,7 +198,7 @@ export default {
        axios
          .get(url)
          .then(response => {
-          //  console.log(response)
+         
             forecast = response.data.list
             let allDates = []
             forecast.forEach((d) => {
@@ -205,14 +213,14 @@ export default {
               this.city = response.data.city.name
               this.day = moment(x).format(`dddd MMMM gggg h:mm a`)
             })
-            console.log(allDates)
+            
             //using filter on list of all dates to return an array of unique dates
             let uniqueDates = allDates.filter((value, index, self)=> {
               return self.indexOf(value) === index
             })
             //store uniqueDates in our state for later use
             this.uniqueDates = uniqueDates
-            console.log(uniqueDates)
+           
             //array that will contain an array for each day
             let dataArray = []
             //for each unique date, look through the full data returned from API
@@ -271,8 +279,6 @@ body{
   width: 100%;
   
 }
-
-
 
 .navImage {
   background: url(./static/images/nav.jpg) no-repeat center center scroll;
